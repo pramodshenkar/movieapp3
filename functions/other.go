@@ -84,14 +84,21 @@ func RemoveProducerFromMovie(movieid int, producerid int) (*mongo.UpdateResult, 
 	return res, nil
 }
 
-func AddActorToMovie(movieid int, actorid int) (*mongo.UpdateResult, error) {
+func AddActorToMovie(movieid int, actorid int, role string, salary string) (*mongo.UpdateResult, error) {
 	filter := bson.D{primitive.E{Key: "_id", Value: movieid}}
 
 	updater := bson.D{
 		primitive.E{
 			Key: "$addToSet",
 			Value: bson.D{
-				{Key: "actors", Value: actorid},
+				{
+					Key: "actors",
+					Value: bson.D{
+						{Key: "actorid", Value: actorid},
+						{Key: "role", Value: role},
+						{Key: "salary", Value: salary},
+					},
+				},
 			},
 		},
 	}
@@ -116,7 +123,12 @@ func RemoveActorFromMovie(movieid int, actorid int) (*mongo.UpdateResult, error)
 		primitive.E{
 			Key: "$pull",
 			Value: bson.D{
-				{Key: "actors", Value: actorid},
+				{
+					Key: "actors",
+					Value: bson.D{
+						{Key: "actorid", Value: actorid},
+					},
+				},
 			},
 		},
 	}

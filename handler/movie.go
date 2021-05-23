@@ -170,7 +170,7 @@ func AddDemoMoviesHandler(c *gin.Context) {
 			Budget:    "10C",
 			Director:  1,
 			Producers: []int{},
-			Actors:    []int{},
+			Actors:    []model.ActorProfile{},
 		},
 		{
 			ID:        2,
@@ -178,7 +178,7 @@ func AddDemoMoviesHandler(c *gin.Context) {
 			Budget:    "10C",
 			Director:  2,
 			Producers: []int{},
-			Actors:    []int{},
+			Actors:    []model.ActorProfile{},
 		},
 		{
 			ID:        3,
@@ -186,7 +186,7 @@ func AddDemoMoviesHandler(c *gin.Context) {
 			Budget:    "10C",
 			Director:  3,
 			Producers: []int{},
-			Actors:    []int{},
+			Actors:    []model.ActorProfile{},
 		},
 		{
 			ID:        4,
@@ -194,7 +194,7 @@ func AddDemoMoviesHandler(c *gin.Context) {
 			Budget:    "10C",
 			Director:  4,
 			Producers: []int{},
-			Actors:    []int{},
+			Actors:    []model.ActorProfile{},
 		}}
 
 	c.Bind(&movies)
