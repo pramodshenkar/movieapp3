@@ -85,7 +85,7 @@ func GetAllMovies() ([]model.Movie, error) {
 func UpdateMovie(movie model.Movie) (*mongo.UpdateResult, error) {
 	filter := bson.D{primitive.E{Key: "_id", Value: movie.ID}}
 
-	updater := bson.D{primitive.E{Key: "$set", Value: bson.D{{Key: "name", Value: movie.Name}, {Key: "budget", Value: movie.Budget}, {Key: "producers", Value: movie.Producers}, {Key: "actors", Value: movie.Actors}}}}
+	updater := bson.D{primitive.E{Key: "$set", Value: bson.D{{Key: "name", Value: movie.Name}, {Key: "budget", Value: movie.Director}, {Key: "director", Value: movie.Budget}, {Key: "producers", Value: movie.Producers}, {Key: "actors", Value: movie.Actors}}}}
 
 	client, err := connectionhelper.GetMongoClient()
 	if err != nil {

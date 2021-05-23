@@ -7,6 +7,18 @@ import (
 	function "github.com/pramodshenkar/movieapp3/functions"
 )
 
+func ReplaceDirectorInMovieHandler(c *gin.Context) {
+	movieid, _ := strconv.Atoi(c.Query("movieid"))
+	directorid, _ := strconv.Atoi(c.Query("directorid"))
+
+	res, err := function.ReplaceDirectorInMovie(movieid, directorid)
+	if err != nil {
+		c.JSON(400, err)
+	} else {
+		c.JSON(200, res)
+	}
+}
+
 /*
 localhost:8080/add-producer-to-movie?movieid=2&producerid=2
 */

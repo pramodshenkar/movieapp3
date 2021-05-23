@@ -168,6 +168,7 @@ func AddDemoMoviesHandler(c *gin.Context) {
 			ID:        1,
 			Name:      "PK",
 			Budget:    "10C",
+			Director:  1,
 			Producers: []int{},
 			Actors:    []int{},
 		},
@@ -175,6 +176,7 @@ func AddDemoMoviesHandler(c *gin.Context) {
 			ID:        2,
 			Name:      "Happy new year",
 			Budget:    "10C",
+			Director:  2,
 			Producers: []int{},
 			Actors:    []int{},
 		},
@@ -182,6 +184,7 @@ func AddDemoMoviesHandler(c *gin.Context) {
 			ID:        3,
 			Name:      "Bahubali",
 			Budget:    "10C",
+			Director:  3,
 			Producers: []int{},
 			Actors:    []int{},
 		},
@@ -189,9 +192,11 @@ func AddDemoMoviesHandler(c *gin.Context) {
 			ID:        4,
 			Name:      "Saho",
 			Budget:    "10C",
+			Director:  4,
 			Producers: []int{},
 			Actors:    []int{},
 		}}
+
 	c.Bind(&movies)
 	res, err := function.AddManyMovies(movies)
 	if err != nil {
