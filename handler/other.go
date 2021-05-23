@@ -33,3 +33,28 @@ func RemoveProducerFromMovieHandler(c *gin.Context) {
 		c.JSON(200, res)
 	}
 }
+
+
+func AddActorToMovieHandler(c *gin.Context) {
+	movieid, _ := strconv.Atoi(c.Query("movieid"))
+	actorid, _ := strconv.Atoi(c.Query("actorid"))
+
+	res, err := function.AddActorToMovie(movieid, actorid)
+	if err != nil {
+		c.JSON(400, err)
+	} else {
+		c.JSON(200, res)
+	}
+}
+
+func RemoveActorFromMovieHandler(c *gin.Context) {
+	movieid, _ := strconv.Atoi(c.Query("movieid"))
+	actorid, _ := strconv.Atoi(c.Query("actorid"))
+
+	res, err := function.RemoveActorFromMovie(movieid, actorid)
+	if err != nil {
+		c.JSON(400, err)
+	} else {
+		c.JSON(200, res)
+	}
+}

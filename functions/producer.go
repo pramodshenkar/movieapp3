@@ -32,7 +32,7 @@ func AddManyProducers(list []model.Producer) (*mongo.InsertManyResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.DIRECTORS)
+	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.PRODUCERS)
 	res, err := collection.InsertMany(context.TODO(), insertableList)
 	if err != nil {
 		return nil, err
@@ -47,7 +47,7 @@ func GetProducersById(id int) (model.Producer, error) {
 	if err != nil {
 		return result, err
 	}
-	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.DIRECTORS)
+	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.PRODUCERS)
 	err = collection.FindOne(context.TODO(), filter).Decode(&result)
 	if err != nil {
 		return result, err
@@ -62,7 +62,7 @@ func GetAllProducers() ([]model.Producer, error) {
 	if err != nil {
 		return producers, err
 	}
-	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.DIRECTORS)
+	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.PRODUCERS)
 	cur, findError := collection.Find(context.TODO(), filter)
 	if findError != nil {
 		return producers, findError
@@ -91,7 +91,7 @@ func UpdateProducer(producer model.Producer) (*mongo.UpdateResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.DIRECTORS)
+	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.PRODUCERS)
 
 	res, err := collection.UpdateOne(context.TODO(), filter, updater)
 	if err != nil {
@@ -106,7 +106,7 @@ func DeleteOneProducer(id int) (*mongo.DeleteResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.DIRECTORS)
+	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.PRODUCERS)
 	res, err := collection.DeleteOne(context.TODO(), filter)
 	if err != nil {
 		return nil, err
@@ -120,7 +120,7 @@ func DeleteAllProducers() (*mongo.DeleteResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.DIRECTORS)
+	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.PRODUCERS)
 	res, err := collection.DeleteMany(context.TODO(), selector)
 	if err != nil {
 		return nil, err

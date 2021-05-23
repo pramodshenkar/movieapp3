@@ -164,8 +164,8 @@ func AddDemoProducersHandler(c *gin.Context) {
 
 	var producers = []model.Producer{
 		{
-			ID:   2,
-			Name: "Ashutosh Gowarikar",
+			ID:   1,
+			Name: "Dharma Production",
 			Address: model.Address{
 				Houseno: "2B",
 				Street:  "ABC",
@@ -174,8 +174,8 @@ func AddDemoProducersHandler(c *gin.Context) {
 			},
 		},
 		{
-			ID:   3,
-			Name: "SS RajMauli",
+			ID:   2,
+			Name: "YashRaj Films",
 			Address: model.Address{
 				Houseno: "3C",
 				Street:  "ABC",
@@ -184,8 +184,8 @@ func AddDemoProducersHandler(c *gin.Context) {
 			},
 		},
 		{
-			ID:   4,
-			Name: "Rohit Shetty",
+			ID:   3,
+			Name: "EROS International",
 			Address: model.Address{
 				Houseno: "4D",
 				Street:  "ABC",
@@ -194,8 +194,8 @@ func AddDemoProducersHandler(c *gin.Context) {
 			},
 		},
 		{
-			ID:   5,
-			Name: "Farah Khan",
+			ID:   4,
+			Name: "Red Chillies Entertainments",
 			Address: model.Address{
 				Houseno: "5E",
 				Street:  "ABC",

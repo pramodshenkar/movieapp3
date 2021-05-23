@@ -58,3 +58,54 @@ func RemoveProducerFromMovie(movieid int, producerid int) (*mongo.UpdateResult, 
 	}
 	return res, nil
 }
+
+func AddActorToMovie(movieid int, actorid int) (*mongo.UpdateResult, error) {
+	filter := bson.D{primitive.E{Key: "_id", Value: movieid}}
+
+	updater := bson.D{
+		primitive.E{
+			Key: "$addToSet",
+			Value: bson.D{
+				{Key: "actors", Value: actorid},
+			},
+		},
+	}
+
+	client, err := connectionhelper.GetMongoClient()
+	if err != nil {
+		return nil, err
+	}
+	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.MOVIES)
+
+	res, err := collection.UpdateOne(context.TODO(), filter, updater)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+func RemoveActorFromMovie(movieid int, actorid int) (*mongo.UpdateResult, error) {
+	filter := bson.D{primitive.E{Key: "_id", Value: movieid}}
+
+	updater := bson.D{
+		primitive.E{
+			Key: "$pull",
+			Value: bson.D{
+				{Key: "actors", Value: actorid},
+			},
+		},
+	}
+
+	client, err := connectionhelper.GetMongoClient()
+	if err != nil {
+		return nil, err
+	}
+	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.MOVIES)
+
+	res, err := collection.UpdateOne(context.TODO(), filter, updater)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+

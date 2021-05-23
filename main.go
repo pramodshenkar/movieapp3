@@ -40,9 +40,30 @@ func main() {
 
 	r.POST("/demoproducers", handler.AddDemoProducersHandler)
 
+
+	//------------Actor---------------------------------
+
+	r.POST("/actor", handler.AddActorHandler)
+	r.POST("/actors", handler.AddManyActorHandler)
+
+	r.GET("/actor", handler.GetActorsByIdHandler)
+	r.GET("/actors", handler.GetAllActorsHandler)
+
+	r.PUT("/actor", handler.UpdateActorHandler)
+	r.DELETE("/actor", handler.DeleteOneActorHandler)
+	r.DELETE("/actors", handler.DeleteAllActorsHandler)
+
+	r.POST("/demoactors", handler.AddDemoActorsHandler)
+
+
 	//------------MOVIE---------------------------------
+
 	r.PUT("/add-producer-to-movie", handler.AddProducerToMovieHandler)
 	r.PUT("/remove-producer-frome-movie", handler.RemoveProducerFromMovieHandler)
+
+	r.PUT("/add-actor-to-movie", handler.AddActorToMovieHandler)
+	r.PUT("/remove-actor-frome-movie", handler.RemoveActorFromMovieHandler)
+
 
 	r.Run()
 

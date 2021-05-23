@@ -165,28 +165,32 @@ func AddDemoMoviesHandler(c *gin.Context) {
 
 	var movies = []model.Movie{
 		{
-			ID:       2,
-			Name:     "PK",
-			Budget:   "10C",
-			Producers:  []int{},
+			ID:        1,
+			Name:      "PK",
+			Budget:    "10C",
+			Producers: []int{},
+			Actors:    []int{},
 		},
 		{
-			ID:       3,
-			Name:     "Happy new year",
-			Budget:   "10C",
-			Producers:  []int{},
+			ID:        2,
+			Name:      "Happy new year",
+			Budget:    "10C",
+			Producers: []int{},
+			Actors:    []int{},
 		},
 		{
-			ID:       4,
-			Name:     "Bahubali",
-			Budget:   "10C",
-			Producers:  []int{},
+			ID:        3,
+			Name:      "Bahubali",
+			Budget:    "10C",
+			Producers: []int{},
+			Actors:    []int{},
 		},
 		{
-			ID:       5,
-			Name:     "Saho",
-			Budget:   "10C",
-			Producers:  []int{},
+			ID:        4,
+			Name:      "Saho",
+			Budget:    "10C",
+			Producers: []int{},
+			Actors:    []int{},
 		}}
 	c.Bind(&movies)
 	res, err := function.AddManyMovies(movies)
