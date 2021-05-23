@@ -3,9 +3,8 @@ package main
 import (
 	"fmt"
 
-	handler "github.com/pramodshenkar/movieapp3/handler"
-
 	"github.com/gin-gonic/gin"
+	handler "github.com/pramodshenkar/movieapp3/handler"
 )
 
 func main() {
@@ -27,7 +26,7 @@ func main() {
 
 	r.POST("/demomovies", handler.AddDemoMoviesHandler)
 
-	//------------MOVIE---------------------------------
+	//------------Producer---------------------------------
 
 	r.POST("/producer", handler.AddProducerHandler)
 	r.POST("/producers", handler.AddManyProducerHandler)
@@ -42,7 +41,8 @@ func main() {
 	r.POST("/demoproducers", handler.AddDemoProducersHandler)
 
 	//------------MOVIE---------------------------------
-	r.POST("/add-producer-to-movie", handler.AddProducerToMovieHandler)
+	r.PUT("/add-producer-to-movie", handler.AddProducerToMovieHandler)
+	r.PUT("/remove-producer-frome-movie", handler.RemoveProducerFromMovieHandler)
 
 	r.Run()
 
