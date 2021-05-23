@@ -15,7 +15,7 @@ func AddDirector(director model.Director) (*mongo.InsertOneResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	collection := client.Database(connectionhelper.DB).Collection("directors")
+	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.DIRECTORS)
 	res, err := collection.InsertOne(context.TODO(), director)
 	if err != nil {
 		return nil, err

@@ -15,7 +15,7 @@ func AddProducer(producer model.Producer) (*mongo.InsertOneResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	collection := client.Database(connectionhelper.DB).Collection("producers")
+	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.PRODUCERS)
 	res, err := collection.InsertOne(context.TODO(), producer)
 	if err != nil {
 		return nil, err

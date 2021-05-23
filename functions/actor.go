@@ -15,7 +15,7 @@ func AddActor(actor model.Actor) (*mongo.InsertOneResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	collection := client.Database(connectionhelper.DB).Collection("actors")
+	collection := client.Database(connectionhelper.DB).Collection(connectionhelper.ACTORS)
 	res, err := collection.InsertOne(context.TODO(), actor)
 	if err != nil {
 		return nil, err
